@@ -1,6 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const fs = require('fs/promises');
+const users = require('./handlers/users')
 
+const fileName = 'talker.json'
 const app = express();
 app.use(bodyParser.json());
 
@@ -15,3 +18,6 @@ app.get('/', (_request, response) => {
 app.listen(PORT, () => {
   console.log('Online');
 });
+
+app.get('/talker',users)
+
