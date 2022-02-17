@@ -35,7 +35,7 @@ const checkEmail = (req, res, next) => {
   };
 
 const createToken = (req, res, _next) => {
-    const token = crypto.randomBytes(8).toString('hex'); // crio token de 16 caracteres
+    const token = crypto.randomBytes(8).toString('hex'); // cada byte transformado para hexadecimal possui 2 caracteres. Portando 8 bytes geram 16 caracteres em hexa
     res.status(200).send({ token: `${token}` });
 };
 
