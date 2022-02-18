@@ -4,6 +4,7 @@ const talker = require('./middlewares/getTalkers');
 const talkerId = require('./middlewares/getTalkerById');
 const login = require('./middlewares/login');
 const postTalker = require('./middlewares/postTalker');
+const putsome = require('./middlewares/putTalker');
 
 const app = express();
 app.use(bodyParser.json());
@@ -25,3 +26,5 @@ app.get('/talker/:id', talkerId);
 app.post('/login', login.checkEmail, login.checkPassword, login.createToken);
 app.post('/talker', postTalker.checkToken, postTalker.checkName, postTalker.checkAge, 
 postTalker.checkTalk, postTalker.checkWatchedAt, postTalker.addTalker);
+app.put('/talker/:id', postTalker.checkToken, postTalker.checkName, postTalker.checkAge, 
+postTalker.checkTalk, postTalker.checkWatchedAt, putsome.putTalker);
